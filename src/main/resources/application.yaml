@@ -7,11 +7,12 @@ server:
       init-parameters:
         development: true #jsp파일 새로 고침(F5) 눌렀을 때 실행시키는 설정  
 
-#jsp파일 경로 및 파일 연결 (spring에서의 servlet-context.xml에 설정된 내용)
 spring:
   mvc:
-    view:
+    view:   #jsp파일 경로 및 파일 연결 (spring에서의 servlet-context.xml에 설정된 내용)
       prefix: /WEB-INF/jsp/
       suffix: .jsp
+  thymeleaf:  #thymeleaf 방식의 파일을 새로고침(F5) 눌렀을 때 실행시키는 설정
+    cache: false
 
 

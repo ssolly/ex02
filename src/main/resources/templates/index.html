@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">	<!-- thymeleaf를 가져와서 사용 : 미작성시 경고 문구 -->
+<head>
+<meta charset="UTF-8">
+<title>index</title>
+</head>
+<body>
+
+<h2>spring boot : index.html</h2>
+ - thymeleaf 버전으로 생성<br>
+ - src/main/resources/templates/index.html<br>
+ <br><hr><br>
+ session → <span th:text="${session.user}">결과 값</span> <br>
+ model → <label style="color:blue" th:text="${user}"></label>
+
+</body>
+</html>
