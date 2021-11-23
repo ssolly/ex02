@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>operator</title>
+</head>
+<body>
+<script type="text/javascript" th:inline="javascript">	//inline 옵션을 넣어주면 문자열로 인식하게 해준다
+	/* alert('[[${arr[0]}]]') */
+	alert([[${arr[0]}]])
+</script>
+
+<header th:include="/default/header"></header>
+
+<h3>삼항 연산자</h3>
+<span th:text="${num} > 10 ? 참:거짓"></span>=>[[${num}]]<hr>	<!-- 대괄호 두개 사용하면 값이 들어옴 -->
+
+<h3>switch</h3>
+<div th:switch="${num}">
+<span th:case="1">1입니다</span>
+<span th:case="2" th:text="2입니다"></span>
+<span th:case="*">해당값이 없습니다</span>
+</div>
+
+<h3>if & each 문</h3>
+<table border="1">
+    <tr>
+   <td th:if="${num} > 0" th:text="환영"></td>
+   <td th:unless="${num} > 0">미환영</td>	<!-- unless:반대를 의미 -->
+    </tr>
+    <tr th:each="obj:${arr}">	<!-- foreach문 -->
+   <td th:text="${obj}"></td>
+    </tr>
+</table>
+arr.size() : [[${arr.size()}]]<br> 
+arr[0] : [[${arr[0]}]]<br>
+arr[1] : [[${arr[1]}]]<br> 
+arr[2] : [[${arr[2]}]]<br>
+
+<footer th:include="/default/footer"></footer>
+</body>
+</html>
