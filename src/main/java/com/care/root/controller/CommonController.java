@@ -33,6 +33,13 @@ public class CommonController {
 		session.setAttribute("user", dto01);
 		model.addAttribute("user",dto02);
 		
+		//spring에선 불가능
+		String message = "<script>alert('문제발생');</script>";
+		message += "<h3>코드 추가</h3>";
+		model.addAttribute("msg",message);
+		
 		return "object";
 	}
+	
+	
 }
