@@ -6,7 +6,13 @@
 </head>
 <body>
 <h2>spring boot : templates/object.html</h2>
-	
+	<!-- 
+		session   : ${session.___}
+		model     : ${ }
+		messages  : #{___}
+		link,path : @{___}
+	 -->
+	 
 	<!-- 길게 직접 작성 -->
 	<b>session.name</b> : <div th:text="${session.user.name}"></div>
 	<b>session.addr</b> : <div th:text="${session.user.addr}"></div>
@@ -28,6 +34,25 @@
 		<b>model.name</b> : <label th:text="*{name}"></label> <br>
 		<b>model.addr</b> :<label th:text="*{addr}"></label>
 	</div>
+	
+	<br><hr><br>
+	<!-- messages.properties -->
+	<label style="color:green" th:text="#{url.naver}"></label><br>
+	
+	<!-- 링크 거는 방법 -->
+	<a th:href="#{url.naver}" th:text="#{url.naver}"><!-- th:text가 들어감 --></a><br>
+	<a th:href="@{home}" th:text="home"></a><br>
+	
+	<!-- '/'사용, Path Variable로 받아야함 -->
+	<a th:href="@{'/home/' + #{url.naver} }" >url.naver</a><br>	
+	<a th:href="@{'/home/' + ${user.name}}">user.name</a><br>
+	
+	<!-- ?로 값을 넘겨줄 때 -->
+	<a th:href="@{home(name=${user.name}) }">name=user.name</a><br> 
+	<a th:href="@{home(name=${user.name},addr=${user.addr})}">
+   		name=user.name, addr=user.addr
+   		<!-- a href="home?id=${user.id}">home</a> -->
+	</a><br>
 	
 </body>
 </html>
