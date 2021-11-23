@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>object</title>
+</head>
+<body>
+<h2>spring boot : templates/object.html</h2>
+	
+	<!-- 길게 직접 작성 -->
+	<b>session.name</b> : <div th:text="${session.user.name}"></div>
+	<b>session.addr</b> : <div th:text="${session.user.addr}"></div>
+	
+	<!-- 정보값이 많을 때 사용 -->
+	<div th:object=${session.user}>
+		<b>session.name</b> : <label th:text="*{name}"></label> <br>
+		<b>session.addr</b> : <label th:text="*{addr}"></label>
+	</div>
+	
+	<hr>
+	
+	<!-- 길게 직접 작성 -->
+	<b>model.name</b> : <div th:text="${user.name}"></div>
+	<b>model.addr</b> : <div th:text="${user.addr}"></div>
+	
+	<!-- 정보값이 많을 때 사용 -->
+	<div th:object=${user}>
+		<b>model.name</b> : <label th:text="*{name}"></label> <br>
+		<b>model.addr</b> :<label th:text="*{addr}"></label>
+	</div>
+	
+</body>
+</html>
