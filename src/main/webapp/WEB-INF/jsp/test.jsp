@@ -9,5 +9,6 @@
 <body>
 
 <h2>spring boot : test.jsp</h2>
+
 </body>
 </html>
